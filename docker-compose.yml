@@ -1,0 +1,16 @@
+version: '3'
+services:
+  taskd:
+    build: .
+    volumes:
+        - ./taskd:/var/taskd
+    ports:
+        - "53589:53589"
+    environment:
+        TASKDDATA: /var/taskd
+        CERT_CN: "davidellinger"
+        CERT_ORGANIZATION: "me"
+        CERT_COUNTRY: "US"
+        CERT_STATE: "MA"
+        CERT_LOCALITY: "Boston"
+    restart: always
